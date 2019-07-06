@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const request = require("request");
+
 
 const app = express();
 
@@ -15,4 +15,4 @@ app.get("/api", (req, res) => {
   res.send("Hi there");
 });
 
-app.listen(3000, () => console.log("Now listening on port 3000!"));
+app.listen(3002, () => console.log("Now listening on port 3002!"));
