@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'seabay',
-    script: '.source/server/index.js'
+    script: './server/index.js'
   }],
   deploy: {
     production: {
