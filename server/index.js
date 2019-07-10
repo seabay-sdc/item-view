@@ -24,19 +24,17 @@ app.get('/api/items', (req, res) => {
   .then( results => {res.send(results)})
 });
 
-
 //Seed items database
 app.post('/api/items/seed', (req, res) => {
+  //Images => Array
+  items = req.body.data.map( item => {
+    item.images = [item.img1, item.img2, item.img3];
+    return item;
+  });
 
-  console.log(req.body.data)
-  console.log(req.body.data.constructor)
-
-  Promise.all(req.body.data.map(jsonItem => {
-    const {id, name, price, category} = jsonItem;
-    const images = [jsonItem.img1, jsonItem.img2, jsonItem.img3]
-    return db.addItem(id, name, price, category, images)
-  }))
+  db.addManyItems(items)
   .then ( () => {res.send('added all items to database')})
 });
+
 
 app.listen(port, () => console.log(`Now listening on port ${port}!`));

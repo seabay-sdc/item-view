@@ -21,10 +21,12 @@ const addItem = (id, name, price, category, images) => {
   }).save()
 }
 
-const getAll = () => {
-  const query = Item.find({})
-  const promise = query.exec()
-  return promise;
+const addManyItems = (items) => {
+  return Item.insertMany(items);
 }
 
-module.exports = {addItem, getAll}
+const getAll = () => {
+  return Item.find({}).exec()
+}
+
+module.exports = {addItem, addManyItems, getAll}
