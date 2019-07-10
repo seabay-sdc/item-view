@@ -4,8 +4,8 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import blue from '@material-ui/core/colors/blue';
-import { Grid, Typography, Paper, Card, CardContent, Divider, CardHeader, GridList, GridListTile, TextField } from "@material-ui/core";
-
+import { IconButton, Grid, Typography, Paper, Card, CardContent, Divider, CardHeader, GridList, GridListTile, TextField, AppBar, Toolbar } from "@material-ui/core";
+// import { MenuIcon} from '@material-ui/icons';
 import ImageView from "./components/ImageView"
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -24,8 +24,6 @@ const useStyles = makeStyles(theme => ({
   Container: {
     backgroundColor: "#f5f5f5"
   }
-
-  
   
   
 }));
@@ -41,6 +39,14 @@ const App = () => {
 
 {/* <Container> */}
 <Container className={classes.Container} maxWidth="lg">
+  <AppBar position="static">
+    <Toolbar>
+      <IconButton edge="start" color="inherit" aria-label="Menu">
+        {/* <MenuIcon /> */}
+      </IconButton>
+    </Toolbar>
+  </AppBar>
+
   <Grid container spacing={3}> 
     <Grid item xs={12} sm={6}>
 
@@ -79,7 +85,7 @@ const App = () => {
             <Typography variant="h6" gutterBottom>(BUY) Open-Box Excellent: Microsoft - Pro IntelliMouse Wired Optical Gaming Mouse</Typography>
           </Grid>
 
-          <Grid item sm={12}>
+          <Grid item xs={12}>
             <Divider style={{marginBottom: 10}}/>
           </Grid>
 
@@ -124,6 +130,44 @@ const App = () => {
           <Grid item xs={12} md={4} style={{padding: 5}}>
           <Button variant="outlined" color="primary" fullWidth={true}>watch list</Button>
           </Grid>
+
+          <Grid item xs={12}>
+            <Divider style={{marginBottom: 10, marginTop: 10}}/>
+          </Grid>
+
+{/* SHIPPING/DELIVERY/PAYMENTS/RETURNS           */}
+        <Grid container xs={12}>
+
+          <Grid item xs={3}>
+            Shipping
+          </Grid>
+          <Grid item xs={9}>
+            FREE Standard Shipping | See details
+          </Grid>
+
+          <Grid item xs={3}>
+            Delivery
+          </Grid>
+          <Grid item xs={9}>  
+            Estimated between Thu. Jul. 11 and Thu. Jul. 18
+            Use One-day Shipping to get it by Jul. 11	 
+          </Grid>
+
+          <Grid item xs={3}>
+            Payments
+          </Grid>
+          <Grid item xs={9}>
+            Payment options here
+          </Grid>
+
+          <Grid item xs={3}>
+            Returns
+          </Grid>
+          <Grid item xs={9}>
+            14 day returns. Buyer pays for return shipping |  See details
+          </Grid>
+          
+        </Grid>
 
 
           </Grid>
