@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const db = require('../database/index.js');
 require('dotenv').config()
 
 
@@ -17,5 +18,25 @@ app.get("/api", (req, res) => {
   res.send("Hi there");
 });
 
+//Get all items
+app.get('/api/items', (req, res) => {
+  db.getAll()
+  .then( results => {res.send(results)})
+});
+
+
+//Seed items database
+app.post('/api/items/seed', (req, res) => {
+
+  console.log(req.body.data)
+  console.log(req.body.data.constructor)
+
+  Promise.all(req.body.data.map(jsonItem => {
+    const {id, name, price, category} = jsonItem;
+    const images = [jsonItem.img1, jsonItem.img2, jsonItem.img3]
+    return db.addItem(id, name, price, category, images)
+  }))
+  .then ( () => {res.send('added all items to database')})
+});
 
 app.listen(port, () => console.log(`Now listening on port ${port}!`));
