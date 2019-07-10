@@ -6,7 +6,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'ubuntu',
-      host: 'ec2-3-17-71-195.us-east-2.compute.amazonaws.com',
+      host: 'ec2-13-59-156-36.us-east-2.compute.amazonaws.com',
       key: '~/.ssh/seabay.pem',
       ref: 'origin/master',
       repo: 'https://github.com/baebay/item-view.git',
