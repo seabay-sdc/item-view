@@ -1,8 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+require('dotenv').config()
 
 
 const app = express();
+const port = process.env.DB_PORT
 
 //Parse json and x-ww-form-urlencoded
 app.use(bodyParser.json());
@@ -15,4 +17,5 @@ app.get("/api", (req, res) => {
   res.send("Hi there");
 });
 
-app.listen(3000, () => console.log("Now listening on port 3000!"));
+
+app.listen(port, () => console.log(`Now listening on port ${port}!`));
