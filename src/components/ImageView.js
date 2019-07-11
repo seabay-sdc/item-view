@@ -1,16 +1,34 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Button from '@material-ui/core/Button';
-import Container from '@material-ui/core/Container';
-import Box from '@material-ui/core/Box';
-import blue from '@material-ui/core/colors/blue';
-import { Grid, Typography, Paper, Card, CardContent, Divider, CardHeader } from "@material-ui/core";
+import { Grid, GridList, GridListTile, Typography, Paper, Card, CardContent, Divider, CardHeader } from "@material-ui/core";
 
-function ImageView ({ name }) {
+function ImageView (props) {
+
   return (
-  <Paper className={classes.paper}>
-  <img src="https://images.unsplash.com/photo-1516247897763-0f4ad94c2668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1299&q=80" alt="mouse" objectFit="cover" width="100%"></img>
-</Paper>
+    <Grid item xs={12} sm={6}>
+
+        <Grid container> 
+
+          <Grid item xs={12}>
+            <Paper className={props.classes.paper} square={true}>
+            <img src="https://i.ebayimg.com/images/g/SeQAAOSw76lcQZVl/s-l500.png" alt="mouse" objectFit="cover" width="100%"></img>
+            </Paper>
+          </Grid>
+          
+          <GridList cols={3} spacing={6} cellHeight={120}>
+            <GridListTile>
+            <img src="https://i.ebayimg.com/images/g/SeQAAOSw76lcQZVl/s-l500.png" alt="mouse"></img>
+            </GridListTile>
+            <GridListTile>
+            <img src="https://i.ebayimg.com/images/g/1TkAAOSwPXFcQZVm/s-l500.png" alt="mouse"></img>
+            </GridListTile>
+
+            <GridListTile>
+              <img src="https://i.ebayimg.com/images/g/pJ4AAOSwc9VcQZVn/s-l500.png" alt="mouse"></img>
+            </GridListTile>
+
+          </GridList>
+        </Grid>
+    </Grid>
 )
 }
 
