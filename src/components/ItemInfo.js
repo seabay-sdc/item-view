@@ -5,7 +5,6 @@ function ItemInfo (props) {
 
   return (
     <Grid item xs={12} sm={6}>
-    {/* BUY IT NOW COMPONENT */}
            <Paper className={props.classes.paper} square={true}>
               <Grid container>
               <Grid item sm={12}>
@@ -28,7 +27,6 @@ function ItemInfo (props) {
     
                   <Grid item xs={12} md={6} style={{padding: 5}}>
                     <Typography variant="subtitle1" gutterBottom>Quantity</Typography>
-    
                   </Grid>
     
                   <Grid item xs={12} md={6} style={{padding: 5}}>
@@ -37,12 +35,10 @@ function ItemInfo (props) {
                         type="number"
                         InputProps={{ inputProps: { min: 1, max: 10 } }}
                         variant="outlined"
-                        margin="dense"
-                        
+                        margin="dense"    
                         />
                         
                   </Grid>
-                {/* </Grid> */}
                 </Grid>
               </Grid>
     
