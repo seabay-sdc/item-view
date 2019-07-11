@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Container from '@material-ui/core/Container';
 import { IconButton, Grid, Typography, Paper, Divider, TextField, AppBar, Toolbar } from "@material-ui/core";
-// import { MenuIcon} from '@material-ui/icons';
 import ImageView from "./components/ImageView"
 import { makeStyles } from '@material-ui/core/styles';
 import ItemInfo from "./components/ItemInfo";
@@ -20,10 +19,8 @@ const useStyles = makeStyles(theme => ({
     marginBottom: 10,
   },
   Container: {
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "#E5E5E5"
   }
-  
-  
 }));
 
 const App = () => {
