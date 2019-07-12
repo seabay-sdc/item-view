@@ -20,7 +20,7 @@ function ItemSummary (props) {
                 />
 
                 <Typography variant="h6" gutterBottom >${props.currentItem.price}</Typography>
-                <Typography variant="subtitle1" gutterBottom >TEST Est. delivery <b>Tue, Jul 23 - Mon, Aug 12</b></Typography>
+                <Typography variant="subtitle1" gutterBottom >Est. delivery <b>Tue, Jul 23 - Mon, Aug 12</b></Typography>
               </Grid>
     
               <Grid item xs={12}>

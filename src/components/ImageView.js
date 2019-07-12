@@ -17,24 +17,16 @@ function ImageView (props) {
           <GridList cols={3} spacing={6} cellHeight={120}>
 
             {props.currentItem.images.map( image => {
-              return (
-              <GridListTile>
-              <img src={image} alt="mouse"></img>
-              </GridListTile>
-              )           
+              console.log('the image is: ',image)
+              if (image.length != 0) {
+                return (
+                <GridListTile>
+                <img src={image} alt="mouse"></img>
+                </GridListTile>
+                )           
+              }
               
             })}
-            {/* <GridListTile>
-            <img src="https://i.ebayimg.com/images/g/SeQAAOSw76lcQZVl/s-l500.png" alt="mouse"></img>
-            </GridListTile>
-            <GridListTile>
-            <img src="https://i.ebayimg.com/images/g/1TkAAOSwPXFcQZVm/s-l500.png" alt="mouse"></img>
-            </GridListTile>
-
-            <GridListTile>
-              <img src="https://i.ebayimg.com/images/g/pJ4AAOSwc9VcQZVn/s-l500.png" alt="mouse"></img>
-            </GridListTile> */}
-
           </GridList>
         </Grid>
 
