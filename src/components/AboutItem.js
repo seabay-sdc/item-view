@@ -1,87 +1,67 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Grid, TextField, Button, GridList, GridListTile, Typography, Paper, Card, CardContent, Divider, CardHeader } from "@material-ui/core";
 
 function AboutItem (props) {
 
   return (
+    <Fragment>
+      <Grid item sm={12} style={{paddingTop: 10, paddingLeft: 5, marginBottom: -10}}>
+         <Typography variant="h5" gutterBottom align="left">About this item</Typography>
+      </Grid>
 
-           <Paper className={props.classes.paper} square={true}>
-              <Grid container>
-              <Grid item sm={12} style={{padding: 5}}>
-                <Typography variant="h6" gutterBottom align="left">Open-Box Excellent: Microsoft - Pro IntelliMouse Wired Optical Gaming Mouse</Typography>
-              </Grid>
-    
-              <Grid item xs={12}>
-                <Divider style={{marginBottom: 10}}/>
-              </Grid>
-    
-              <Grid container xs={12}>
-              <Grid container xs={12} md={8}>
-                  <Grid item xs={12} md={6} style={{padding: 5}}>
-                    <Typography variant="subtitle1" gutterBottom>Price: $69</Typography>
-                  </Grid>
-    
-                  <Grid item xs={12} md={6} style={{padding: 5}}>
-                  <Typography variant="subtitle1" gutterBottom>Condition: New </Typography>
-                  </Grid>
-    
-                  <Grid item xs={12} md={6} style={{padding: 5}}>
-                    <Typography variant="subtitle1" gutterBottom>Quantity</Typography>
-                  </Grid>
-    
-                  <Grid item xs={12} md={6} style={{padding: 5}}>
-                    <TextField 
-                        defaultValue={1}
-                        type="number"
-                        InputProps={{ inputProps: { min: 1, max: 10 } }}
-                        variant="outlined"
-                        margin="dense"    
-                        />
-                        
-                  </Grid>
-                </Grid>
-              </Grid>
-    
-    
+      <Paper className={props.classes.paper} square={true}>
+        <Grid container style={{padding: 5}}>
 
-    
-    {/* SHIPPING/DELIVERY/PAYMENTS/RETURNS           */}
-            <Grid container xs={12}>
-    
-              <Grid item xs={3}>
-                Shipping
+          <Grid item xs={10}>
+            <Grid container>
+
+{/* Row 1 */}
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">Condition</Typography>
               </Grid>
-              <Grid item xs={9}>
-                FREE Standard Shipping | See details
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">New</Typography>
               </Grid>
-    
-              <Grid item xs={3}>
-                Delivery
+{/* Row 2 */}
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">Quantity</Typography>
               </Grid>
-              <Grid item xs={9}>  
-                Estimated between Thu. Jul. 11 and Thu. Jul. 18
-                Use One-day Shipping to get it by Jul. 11	 
+              <Grid item xs={6}>
+                <Typography variant="body1" align="left">Almost Gone</Typography>
+                <Typography variant="body1" gutterBottom align="left">7 Watching</Typography>
               </Grid>
-    
-              <Grid item xs={3}>
-                Payments
+{/* Row 1 */}
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">Category</Typography>
               </Grid>
-              <Grid item xs={9}>
-                Payment options here
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">Electronics</Typography>
               </Grid>
-    
-              <Grid item xs={3}>
-                Returns
-              </Grid>
-              <Grid item xs={9}>
-                14 day returns. Buyer pays for return shipping |  See details
-              </Grid>
-              
+
             </Grid>
-    
-    
-              </Grid>
-           </Paper>
+          </Grid>
+
+        {/* COL2 */}
+        <Grid item xs={4} style={{padding: 5}}>
+
+        </Grid>
+          <Grid item sm={4} style={{padding: 5}}>
+           
+          </Grid>
+
+          <Grid item xs={12}>
+            <Divider style={{marginBottom: 10}}/>
+          </Grid>
+
+          <Typography variant="subtitle1" gutterBottom align="left"><b>Item Description</b></Typography>
+          <Typography variant="body2" align="left">
+          Antique Anchor Wilcox Crittenden Fishermans Anchor Kedge Anchor at only 5 lbs  great size for wall hanging Marked with WC Logo.  FREE SHIPPING with USPS Priority Mail.
+            
+          </Typography>
+
+        </Grid>
+      </Paper>
+    </Fragment>
 
 )
 }

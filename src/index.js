@@ -2,15 +2,30 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Container from '@material-ui/core/Container';
-import { IconButton, Button, Grid, Typography, Paper, Divider, TextField, AppBar, Toolbar } from "@material-ui/core";
-import ImageView from "./components/ImageView"
+import { createMuiTheme, MuiThemeProvider, IconButton, Button, Grid, Typography, Paper, Divider, TextField, AppBar, Toolbar } from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import { withStyles } from '@material-ui/styles';
-import AboutItem from "./components/AboutItem";
+import { withStyles, withTheme } from '@material-ui/styles';
+import blue from '@material-ui/core/colors/blue';
+
+
+import ImageView from "./components/ImageView"
 import ShippingReturnsPayment from "./components/ShippingReturnsPayment";
+import AboutItem from "./components/AboutItem";
+import ItemSummary from './components/ItemSummary'
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#0065D2"
+    },
+    secondary: {
+      main: "#009AF7"
+    }
 
+  }
 
+});
+console.log(theme)
 
 const styles = {
   root: {
@@ -25,7 +40,7 @@ const styles = {
     marginBottom: 10,
   },
   Container: {
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "#EEEEEE",
     padding: 0,
     marginTop: 0
   }
@@ -69,20 +84,21 @@ class App extends React.Component {
           <Grid item sm={12} md={6}>
 
             {/* Buttons */}
+            <ItemSummary classes={classes}/>
             <Grid container>
                 <Grid item xs={12} md={4} style={{padding: 5}}>
-                  <Button variant="contained" color="primary" fullWidth={true} >Buy It Now</Button>
+                  <Button variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}} >Buy It Now</Button>
                 </Grid>
                 <Grid item xs={12} md={4} style={{padding: 5}}>
-                  <Button variant="contained" color="secondary" fullWidth={true}>Add to cart</Button>
+                  <Button variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}}>Add to cart</Button>
                 </Grid>
                 <Grid item xs={12} md={4} style={{padding: 5}}>
-                  <Button variant="outlined" color="primary" fullWidth={true}>watch list</Button>
+                  <Button variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}}>watch list</Button>
                 </Grid>
             </Grid>
-
-            <AboutItem classes={classes}/>
-            <ShippingReturnsPayment classes={classes}/>
+              
+              <AboutItem classes={classes}/>
+              <ShippingReturnsPayment classes={classes}/>
           </Grid>
         </Grid>
       </Container>
@@ -92,4 +108,8 @@ class App extends React.Component {
 
 App = withStyles(styles)(App);
 
-ReactDOM.render(<App />, document.getElementById("item-view"));
+ReactDOM.render(
+<MuiThemeProvider theme={theme}>
+  <App />
+</MuiThemeProvider>
+, document.getElementById("item-view"));
