@@ -6,6 +6,7 @@ import { createMuiTheme, MuiThemeProvider, IconButton, Button, Grid, Typography,
 import { makeStyles } from '@material-ui/core/styles';
 import { withStyles, withTheme } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
+import axios from 'axios';
 
 
 import ImageView from "./components/ImageView"
@@ -53,7 +54,17 @@ class App extends React.Component {
     super()
     
     this.state = {
-
+      items : [],
+      currentItemIndex: 31,
+      currentItem: 
+        {
+          "id": 31,
+          "name": "INDUSTRIAL SYLE deluxe mobile home (two colors available)",
+          "price": 2399,
+          "category": "Mobile Homes and RVs",
+          "images" : ["https://bloximages.newyork1.vip.townnews.com/newsadvance.com/content/tncms/assets/v3/editorial/8/d6/8d640864-32b3-11e2-b0c5-0019bb30f31a/50aae008b6cc3.image.jpg", "http://www.jillmogersculptures.co.uk/_media/img/large/affordable-housing-canned-hermit-crab-semi-porcelain-tin-and-wire-18-x-14cms.jpg"]
+        }
+      
     }
   }
 
@@ -63,12 +74,31 @@ class App extends React.Component {
       console.log('Item view received this id: ', data)
     });
 
+    this.getData()
+  }
+
+  //populate our state with items from server
+  getData() {
+    axios.get('http://localhost:3000/api/items')
+    .then( results => {this.setState({items: results.data})})
+    .then( ()=>{
+      console.log('items from state:')
+      console.log(this.state.items)})
+  }
+
+  updateCurrentItem(){
+    this.setState({currentItem : this.state.items[this.state.currentItemIndex]})
+  }
+
+  rngCurrentItemIndex(){
+    this.setState({currentItemIndex : Math.floor(Math.random() * 40)}, this.updateCurrentItem)
   }
   
   render () {
     const {classes} = this.props;
     return (
       <Container className={classes.Container} maxWidth="lg">
+        <Button onClick={()=>{this.rngCurrentItemIndex()}}variant="contained" color="primary">RNG item</Button>
         <AppBar position="static">
           <Toolbar>
             <IconButton edge="start" color="inherit" aria-label="Menu">
@@ -79,12 +109,13 @@ class App extends React.Component {
 
         <Grid container spacing={3}> 
           <Grid item sm={12} md={6}>
-            <ImageView classes={classes}/>
+            <ImageView classes={classes} currentItem={this.state.currentItem}/>
           </Grid>
           <Grid item sm={12} md={6}>
 
+            <ItemSummary classes={classes} currentItem={this.state.currentItem}/>
+
             {/* Buttons */}
-            <ItemSummary classes={classes}/>
             <Grid container>
                 <Grid item xs={12} md={4} style={{padding: 5}}>
                   <Button variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}} >Buy It Now</Button>

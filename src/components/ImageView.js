@@ -10,12 +10,21 @@ function ImageView (props) {
 
           <Grid item xs={12}>
             <Paper className={props.classes.paper} square={true}>
-            <img src="https://i.ebayimg.com/images/g/SeQAAOSw76lcQZVl/s-l500.png" alt="mouse" objectFit="cover" width="100%"></img>
+            <img src={props.currentItem.images[0]} alt="mouse" objectFit="cover" width="100%"></img>
             </Paper>
           </Grid>
           
           <GridList cols={3} spacing={6} cellHeight={120}>
-            <GridListTile>
+
+            {props.currentItem.images.map( image => {
+              return (
+              <GridListTile>
+              <img src={image} alt="mouse"></img>
+              </GridListTile>
+              )           
+              
+            })}
+            {/* <GridListTile>
             <img src="https://i.ebayimg.com/images/g/SeQAAOSw76lcQZVl/s-l500.png" alt="mouse"></img>
             </GridListTile>
             <GridListTile>
@@ -24,7 +33,7 @@ function ImageView (props) {
 
             <GridListTile>
               <img src="https://i.ebayimg.com/images/g/pJ4AAOSwc9VcQZVn/s-l500.png" alt="mouse"></img>
-            </GridListTile>
+            </GridListTile> */}
 
           </GridList>
         </Grid>
