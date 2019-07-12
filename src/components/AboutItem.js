@@ -1,14 +1,14 @@
 import React from "react";
 import { Grid, TextField, Button, GridList, GridListTile, Typography, Paper, Card, CardContent, Divider, CardHeader } from "@material-ui/core";
 
-function ItemInfo (props) {
+function AboutItem (props) {
 
   return (
-    <Grid item xs={12} sm={6}>
+
            <Paper className={props.classes.paper} square={true}>
               <Grid container>
-              <Grid item sm={12}>
-                <Typography variant="h6" gutterBottom>(BUY) Open-Box Excellent: Microsoft - Pro IntelliMouse Wired Optical Gaming Mouse</Typography>
+              <Grid item sm={12} style={{padding: 5}}>
+                <Typography variant="h6" gutterBottom align="left">Open-Box Excellent: Microsoft - Pro IntelliMouse Wired Optical Gaming Mouse</Typography>
               </Grid>
     
               <Grid item xs={12}>
@@ -43,20 +43,7 @@ function ItemInfo (props) {
               </Grid>
     
     
-    {/* Buttons */}
-              <Grid item xs={12} md={4} style={{padding: 5}}>
-              <Button variant="contained" color="primary" fullWidth={true} >Buy It Now</Button>
-              </Grid>
-              <Grid item xs={12} md={4} style={{padding: 5}}>
-              <Button variant="contained" color="secondary" fullWidth={true}>Add to cart</Button>
-              </Grid>
-              <Grid item xs={12} md={4} style={{padding: 5}}>
-              <Button variant="outlined" color="primary" fullWidth={true}>watch list</Button>
-              </Grid>
-    
-              <Grid item xs={12}>
-                <Divider style={{marginBottom: 10, marginTop: 10}}/>
-              </Grid>
+
     
     {/* SHIPPING/DELIVERY/PAYMENTS/RETURNS           */}
             <Grid container xs={12}>
@@ -95,8 +82,8 @@ function ItemInfo (props) {
     
               </Grid>
            </Paper>
-        </Grid>
+
 )
 }
 
-export default ItemInfo;
+export default AboutItem;

@@ -4,7 +4,7 @@ import { Grid, GridList, GridListTile, Typography, Paper, Card, CardContent, Div
 function ImageView (props) {
 
   return (
-    <Grid item xs={12} sm={6}>
+
 
         <Grid container> 
 
@@ -28,7 +28,7 @@ function ImageView (props) {
 
           </GridList>
         </Grid>
-    </Grid>
+
 )
 }
 
