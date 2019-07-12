@@ -1,3 +1,5 @@
+const Dotenv = require('dotenv-webpack');
+
 module.exports = {
   entry: "./src/index.js",
   module: {
@@ -16,5 +18,8 @@ module.exports = {
     path: __dirname + "/dist",
     publicPath: "/",
     filename: "bundle.js"
-  }
+  },
+  plugins: [
+    new Dotenv()
+  ]
 };

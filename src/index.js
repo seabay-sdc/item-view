@@ -9,8 +9,9 @@ import blue from '@material-ui/core/colors/blue';
 import axios from 'axios';
 
 
-
-// require('dotenv').config();
+// require('dotenv').config()
+// import dotenv from 'dotenv/config'
+// dotenv.config()
 
 import ImageView from "./components/ImageView"
 import ShippingReturnsPayment from "./components/ShippingReturnsPayment";
@@ -82,7 +83,7 @@ class App extends React.Component {
 
   //populate our state with items from server
   getData() {
-    axios.get(`http://localhost:3000/api/items`)
+    axios.get(`${process.env.HOST}:3000/api/items`)
     .then( results => {this.setState({items: results.data})})
     .then( ()=>{
       console.log('items from state:')
