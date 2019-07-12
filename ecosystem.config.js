@@ -1,7 +1,7 @@
 module.exports = {
   apps: [{
     name: 'seabay',
-    script: './server/index.js'
+    script: './server'
   }],
   deploy: {
     production: {
@@ -10,7 +10,7 @@ module.exports = {
       key: '~/.ssh/seabay.pem',
       ref: 'origin/master',
       repo: 'https://github.com/baebay/item-view.git',
-      path: '/home/ubuntu/seabay/current',
+      path: '/home/ubuntu/seabay',
       'post-deploy': 'npm install && node server && pm2 startOrRestart ecosystem.config.js'
     }
   }
