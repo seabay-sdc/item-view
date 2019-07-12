@@ -70,6 +70,7 @@ class App extends React.Component {
         }
       
     }
+    this.handleAddToCart = this.handleAddToCart.bind(this);
   }
 
   componentDidMount() {
@@ -97,6 +98,13 @@ class App extends React.Component {
   rngCurrentItemIndex(){
     this.setState({currentItemIndex : Math.floor(Math.random() * 40)}, this.updateCurrentItem)
   }
+
+  handleAddToCart(){
+	  const detail = { detail: this.state.currentItemIndex }
+    const event = new CustomEvent('addToCart', detail);
+    console.log('an item was added to the cart', event)
+    document.dispatchEvent(event);
+  }
   
   render () {
     const {classes} = this.props;
@@ -122,10 +130,10 @@ class App extends React.Component {
             {/* Buttons */}
             <Grid container>
                 <Grid item xs={12} md={4} style={{padding: 5}}>
-                  <Button variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}} >Buy It Now</Button>
+                  <Button onClick={this.handleAddToCart} variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}} >Buy It Now</Button>
                 </Grid>
                 <Grid item xs={12} md={4} style={{padding: 5}}>
-                  <Button variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}}>Add to cart</Button>
+                  <Button onClick={this.handleAddToCart} variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}}>Add to cart</Button>
                 </Grid>
                 <Grid item xs={12} md={4} style={{padding: 5}}>
                   <Button variant="contained" color="secondary" fullWidth={true} style={{borderRadius: 2}}>watch list</Button>
