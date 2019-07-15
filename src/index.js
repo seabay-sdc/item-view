@@ -112,13 +112,7 @@ class App extends React.Component {
     return (
       <Container className={classes.Container} maxWidth="lg">
         <Button onClick={()=>{this.rngCurrentItemIndex()}}variant="contained" color="primary">RNG item</Button>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="Menu">
-              {/* <MenuIcon /> */}
-            </IconButton>
-          </Toolbar>
-        </AppBar>
+
 
         <Grid container spacing={3}> 
           <Grid item sm={12} md={6}>
