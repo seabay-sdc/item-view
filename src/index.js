@@ -67,10 +67,12 @@ class App extends React.Component {
           "price": 2399,
           "category": "Mobile Homes and RVs",
           "images" : ["https://bloximages.newyork1.vip.townnews.com/newsadvance.com/content/tncms/assets/v3/editorial/8/d6/8d640864-32b3-11e2-b0c5-0019bb30f31a/50aae008b6cc3.image.jpg", "http://www.jillmogersculptures.co.uk/_media/img/large/affordable-housing-canned-hermit-crab-semi-porcelain-tin-and-wire-18-x-14cms.jpg"]
-        }
+        },
+      quantity: 1,
       
     }
     this.handleAddToCart = this.handleAddToCart.bind(this);
+    this.onChangeQuantity = this.onChangeQuantity.bind(this);
   }
 
   componentDidMount() {
@@ -92,7 +94,10 @@ class App extends React.Component {
   }
 
   updateCurrentItem(){
-    this.setState({currentItem : this.state.items[this.state.currentItemIndex]})
+    this.setState({
+      currentItem : this.state.items[this.state.currentItemIndex],
+      quantity : 1
+    })
   }
 
   rngCurrentItemIndex(){
@@ -100,11 +105,20 @@ class App extends React.Component {
   }
 
   handleAddToCart(){
-	  const detail = { detail: this.state.currentItemIndex }
+	  const detail = { 
+      detail: {
+        id : this.state.currentItemIndex,
+        quantity: this.state.quantity
+      } 
+    }
     const event = new CustomEvent('addToCart', detail);
     console.log('an item was added to the cart', event)
     document.dispatchEvent(event);
     
+  }
+
+  onChangeQuantity(newQuantity){
+    this.setState({quantity : parseInt(newQuantity)})
   }
   
   render () {
@@ -120,7 +134,12 @@ class App extends React.Component {
           </Grid>
           <Grid item sm={12} md={6}>
 
-            <ItemSummary classes={classes} currentItem={this.state.currentItem}/>
+            <ItemSummary 
+              classes={classes} 
+              currentItem={this.state.currentItem}
+              onChangeQuantity={this.onChangeQuantity}
+              quantity={this.state.quantity}
+              />
 
             {/* Buttons */}
             <Grid container>

@@ -37,12 +37,13 @@ function ItemSummary (props) {
     
               <Grid item xs={2} style={{padding: 5}}>
               <TextField 
-                    defaultValue={1}
+                    defaultValue={props.quantity}
                     type="number"
                     InputProps={{ inputProps: { min: 1, max: 10 } }}
                     variant="outlined"
                     margin="none"
                     fullWidth={true}    
+                    onChange={(e)=>{props.onChangeQuantity(e.target.value)}}
                     />
               </Grid>
     
