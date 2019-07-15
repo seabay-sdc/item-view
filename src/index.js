@@ -84,7 +84,7 @@ class App extends React.Component {
 
   //populate our state with items from server
   getData() {
-    axios.get(`http://172.31.43.58:3000/api/items`)
+    axios.get(`http://18.223.115.104:3000/api/items`)
     .then( results => {this.setState({items: results.data})})
     .then( ()=>{
       console.log('items from state:')
