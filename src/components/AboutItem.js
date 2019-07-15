@@ -5,15 +5,21 @@ function AboutItem (props) {
 
   return (
     <Fragment>
-      <Grid item sm={12} style={{paddingTop: 10, paddingLeft: 5, marginBottom: -10}}>
+      {/* <Grid item sm={12} style={{paddingTop: 10, paddingLeft: 5, marginBottom: -10}}>
          <Typography variant="h5" gutterBottom align="left">About this item</Typography>
-      </Grid>
+      </Grid> */}
 
       <Paper className={props.classes.paper} square={true}>
         <Grid container style={{padding: 5}}>
 
+          <Typography variant="h5" gutterBottom align="left">About this item</Typography>
+          <Grid item xs={12}>
+            <Divider style={{marginBottom: 20}}/>
+          </Grid>
+
           <Grid item xs={10}>
             <Grid container>
+              
 
 {/* Row 1 */}
               <Grid item xs={6}>
@@ -35,7 +41,7 @@ function AboutItem (props) {
                 <Typography variant="body1" gutterBottom align="left">Category</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant="body1" gutterBottom align="left">Electronics</Typography>
+                <Typography variant="body1" gutterBottom align="left">{props.currentItem.category}</Typography>
               </Grid>
 
             </Grid>

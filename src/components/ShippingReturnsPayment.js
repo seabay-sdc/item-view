@@ -7,12 +7,42 @@ function ShippingReturnsPayment (props) {
            <Paper className={props.classes.paper} square={true}>
               <Grid container>
               <Grid item sm={12} style={{padding: 5}}>
-                <Typography variant="h6" gutterBottom align="left">Shipping, Returns & Payment</Typography>
+                <Typography variant="h5" gutterBottom align="left">Shipping, Returns & Payment</Typography>
               </Grid>
     
               <Grid item xs={12}>
-                <Divider style={{marginBottom: 10}}/>
+                <Divider style={{marginBottom: 20}}/>
               </Grid>
+
+           <Grid item xs={10}>
+              <Grid container>
+              
+
+{/* Row 1 */}
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">Condition</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">New</Typography>
+              </Grid>
+{/* Row 2 */}
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">Quantity</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="body1" align="left">Almost Gone</Typography>
+                <Typography variant="body1" gutterBottom align="left">7 Watching</Typography>
+              </Grid>
+{/* Row 1 */}
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">Category</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="body1" gutterBottom align="left">{props.currentItem.category}</Typography>
+              </Grid>
+
+            </Grid>
+          </Grid>
     
               <Grid container xs={12}>
               <Grid container xs={12} md={8}>
@@ -24,20 +54,7 @@ function ShippingReturnsPayment (props) {
                   <Typography variant="subtitle1" gutterBottom>Condition: New </Typography>
                   </Grid>
     
-                  <Grid item xs={12} md={6} style={{padding: 5}}>
-                    <Typography variant="subtitle1" gutterBottom>Quantity</Typography>
-                  </Grid>
-    
-                  <Grid item xs={12} md={6} style={{padding: 5}}>
-                    <TextField 
-                        defaultValue={1}
-                        type="number"
-                        InputProps={{ inputProps: { min: 1, max: 10 } }}
-                        variant="outlined"
-                        margin="dense"    
-                        />
-                        
-                  </Grid>
+
                 </Grid>
               </Grid>
 

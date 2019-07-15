@@ -10,8 +10,11 @@ function ItemSummary (props) {
 
            <Paper className={props.classes.paper} square={true}>
               <Grid container>
+                <Typography variant="h5" gutterBottom align="left" >{props.currentItem.name}</Typography>
+                <Grid item xs={12}>
+                  <Divider style={{marginBottom: 20}}/>
+                </Grid>
               <Grid align="left" item sm={12} style={{padding: 5}}>
-                <Typography variant="h6" gutterBottom >{props.currentItem.name}</Typography>
 
                 <Rating
                   value={4}
@@ -23,8 +26,24 @@ function ItemSummary (props) {
                 <Typography variant="subtitle1" gutterBottom >Est. delivery <b>Tue, Jul 23 - Mon, Aug 12</b></Typography>
               </Grid>
     
+
               <Grid item xs={12}>
                 <Divider style={{marginBottom: 10}}/>
+              </Grid>
+
+              <Grid item xs={2} style={{padding: 5, paddingTop: 18}}>
+                <Typography variant="subtitle1" align="left" gutterBottom>Quantity:</Typography>
+              </Grid>
+    
+              <Grid item xs={2} style={{padding: 5}}>
+              <TextField 
+                    defaultValue={1}
+                    type="number"
+                    InputProps={{ inputProps: { min: 1, max: 10 } }}
+                    variant="outlined"
+                    margin="none"
+                    fullWidth={true}    
+                    />
               </Grid>
     
 

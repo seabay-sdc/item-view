@@ -75,8 +75,8 @@ class App extends React.Component {
 
   componentDidMount() {
 
-    document.addEventListener('testEvent', data => {
-      console.log('Item view received this id: ', data)
+    document.addEventListener('setCurrentItem', data => {
+      console.log('From Hadley: ', data)
     });
 
     this.getData()
@@ -84,7 +84,7 @@ class App extends React.Component {
 
   //populate our state with items from server
   getData() {
-    axios.get(`${process.env.HOST}:3000/api/items`)
+    axios.get(`http://172.31.43.58:3000/api/items`)
     .then( results => {this.setState({items: results.data})})
     .then( ()=>{
       console.log('items from state:')
@@ -104,6 +104,7 @@ class App extends React.Component {
     const event = new CustomEvent('addToCart', detail);
     console.log('an item was added to the cart', event)
     document.dispatchEvent(event);
+    
   }
   
   render () {
@@ -140,8 +141,12 @@ class App extends React.Component {
                 </Grid>
             </Grid>
               
-              <AboutItem classes={classes}/>
-              <ShippingReturnsPayment classes={classes}/>
+              <AboutItem 
+                classes={classes}
+                currentItem={this.state.currentItem}/>
+              <ShippingReturnsPayment 
+                classes={classes}
+                currentItem={this.state.currentItem}/>
           </Grid>
         </Grid>
       </Container>
