@@ -89,9 +89,6 @@ class App extends React.Component {
   getData() {
     axios.get(`http://18.223.115.104:3000/api/items`)
     .then( results => {this.setState({items: results.data})})
-    .then( ()=>{
-      console.log('items from state:')
-      console.log(this.state.items)})
   }
 
   //updates current item and it's corresponding index based on a given index

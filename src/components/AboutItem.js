@@ -26,15 +26,15 @@ function AboutItem (props) {
                 <Typography variant="body1" gutterBottom align="left">Condition</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant="body1" gutterBottom align="left">New</Typography>
+                <Typography variant="body1" gutterBottom align="left">{props.currentItem.condition}</Typography>
               </Grid>
 {/* Row 2 */}
               <Grid item xs={6}>
                 <Typography variant="body1" gutterBottom align="left">Quantity</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant="body1" align="left">Almost Gone</Typography>
-                <Typography variant="body1" gutterBottom align="left">7 Watching</Typography>
+                <Typography variant="body1" align="left">{props.currentItem.quantity} available</Typography>
+                <Typography variant="body1" gutterBottom align="left" style={{color: "red"}}>{props.currentItem.watching} Watching</Typography>
               </Grid>
 {/* Row 1 */}
               <Grid item xs={6}>
@@ -60,10 +60,7 @@ function AboutItem (props) {
           </Grid>
 
           <Typography variant="subtitle1" gutterBottom align="left"><b>Item Description</b></Typography>
-          <Typography variant="body2" align="left">
-          Antique Anchor Wilcox Crittenden Fishermans Anchor Kedge Anchor at only 5 lbs  great size for wall hanging Marked with WC Logo.  FREE SHIPPING with USPS Priority Mail.
-            
-          </Typography>
+          <Typography variant="body2" align="left">{props.currentItem.description} </Typography>
 
         </Grid>
       </Paper>

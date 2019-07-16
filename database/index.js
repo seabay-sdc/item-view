@@ -17,7 +17,11 @@ const addItem = (id, name, price, category, images) => {
     name, 
     price, 
     category,
-    images
+    images,
+    quantity,
+    condition,
+    description,
+    watching
   }).save()
 }
 

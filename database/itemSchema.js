@@ -20,7 +20,19 @@ const itemSchema = new mongoose.Schema({
   images: {
     type: Array,
     required: [true, 'At least one image is required']
-  }
+  },
+  quantity: {
+    type: Number
+  },
+  condition: {
+    type: String
+  },
+  watching: {
+    type: Number
+  },
+  description: {
+    type: String
+  },
 })
 
 module.exports = mongoose.model('Item', itemSchema);

@@ -30,7 +30,7 @@ function ShippingReturnsPayment (props) {
                 <Typography variant="body1" gutterBottom align="left">Quantity</Typography>
               </Grid>
               <Grid item xs={6}>
-                <Typography variant="body1" align="left">Almost Gone</Typography>
+                <Typography variant="body1" align="left">{props.currentItem.quantity}</Typography>
                 <Typography variant="body1" gutterBottom align="left">7 Watching</Typography>
               </Grid>
 {/* Row 1 */}
