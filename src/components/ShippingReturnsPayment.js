@@ -60,20 +60,6 @@ function ShippingReturnsPayment (props) {
                 </Grid>
               </Grid>
 
-              {/* COL2 */}
-              <Grid item xs={4} style={{padding: 5}}>
-
-              </Grid>
-              <Grid item sm={4} style={{padding: 5}}>
-              
-              </Grid>
-
-              <Grid item xs={12}>
-                <Divider style={{marginBottom: 10}}/>
-              </Grid>
-
-              <Typography variant="subtitle1" gutterBottom align="left"><b>Item Description</b></Typography>
-              <Typography variant="body2" align="left">{props.currentItem.description} </Typography>
 
               </Grid>
            </Paper>
