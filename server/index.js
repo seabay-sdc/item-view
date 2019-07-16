@@ -2,12 +2,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const db = require('../database/index.js');
 require('dotenv').config()
-var cors = require('cors')
+const cors = require('cors')
+const compression = require('compression')
 
 
 const app = express();
 const port = process.env.DB_PORT
 
+app.use(compression())
 app.use(cors())
 //Parse json and x-ww-form-urlencoded
 app.use(bodyParser.json());

@@ -4,7 +4,10 @@ import Rating from 'material-ui-rating'
 
 function ItemSummary (props) {
 
-  console.log(props.currentItem)
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
 
   return (
 
@@ -22,7 +25,7 @@ function ItemSummary (props) {
                   readOnly={true} 
                 />
 
-                <Typography variant="h6" gutterBottom >${props.currentItem.price}</Typography>
+                <Typography variant="h6" gutterBottom >{formatter.format(props.currentItem.price)}</Typography>
                 <Typography variant="subtitle1" gutterBottom >Est. delivery <b>Tue, Jul 23 - Mon, Aug 12</b></Typography>
               </Grid>
     
