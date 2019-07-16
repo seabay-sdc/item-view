@@ -62,14 +62,14 @@ class App extends React.Component {
     
     this.state = {
       items : [],
-      currentItemIndex: 31,
+      currentItemIndex: -1,
       currentItem: 
         {
-          "id": 31,
-          "name": "INDUSTRIAL SYLE deluxe mobile home (two colors available)",
-          "price": 2399,
-          "category": "Mobile Homes and RVs",
-          "images" : ["https://bloximages.newyork1.vip.townnews.com/newsadvance.com/content/tncms/assets/v3/editorial/8/d6/8d640864-32b3-11e2-b0c5-0019bb30f31a/50aae008b6cc3.image.jpg", "http://www.jillmogersculptures.co.uk/_media/img/large/affordable-housing-canned-hermit-crab-semi-porcelain-tin-and-wire-18-x-14cms.jpg"]
+          "id": -1,
+          "name": "",
+          "price": 0,
+          "category": "",
+          "images" : ["","",""]
         },
       quantity: 1,
       
@@ -86,11 +86,13 @@ class App extends React.Component {
     });
 
     this.getData()
+    //after we get our data the first time, set the current item to the first one in the list
+    .then( () => {this.updateCurrentItem(0)})
   }
 
   //populate our state with items from server
   getData() {
-    axios.get(`http://18.223.115.104:3000/api/items`)
+    return axios.get(`http://18.223.115.104:3000/api/items`)
     .then( results => {this.setState({items: results.data})})
   }
 
