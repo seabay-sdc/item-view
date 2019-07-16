@@ -47,7 +47,9 @@ const styles = {
   Container: {
     backgroundColor: "#EEEEEE",
     padding: 0,
-    marginTop: 0
+    marginTop: 0,
+    // Added to because bottom was overflowing into doriss
+    marginBottom: 0,
   },
   label: {
     color: '#767676'

@@ -44,7 +44,7 @@ function AboutItem (props) {
               </Grid>
 {/* Row 1 */}
               <Grid item xs={6}>
-                <Typography className={props.classes.label} variant="body1" gutterBottom align="left">Category</Typography>
+                <Typography className={props.classes.label}variant="body1" gutterBottom align="left">Category</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="body1" gutterBottom align="left">{props.currentItem.category}</Typography>
