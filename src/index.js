@@ -131,7 +131,7 @@ class App extends React.Component {
     const {classes} = this.props;
     return (
       <Container className={classes.Container} maxWidth="lg">
-        <Button onClick={()=>{this.rngCurrentItemIndex()}}variant="contained" color="primary">I'm Feeling Lucky</Button>
+       
 
 
         <Grid container spacing={3}> 
@@ -167,6 +167,14 @@ class App extends React.Component {
                 classes={classes}
                 currentItem={this.state.currentItem}/>
           </Grid>
+          {/* Random button for testing */}
+          
+          <Grid item xs={12}>
+            <Grid container justify="center" alignItems="center">
+              <Button  onClick={()=>{this.rngCurrentItemIndex()}}variant="contained" color="primary">I'm Feeling Lucky (for testing)</Button>
+            </Grid>
+          </Grid>
+
         </Grid>
       </Container>
       );
