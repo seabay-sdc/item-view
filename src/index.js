@@ -78,7 +78,7 @@ class App extends React.Component {
   componentDidMount() {
 
     document.addEventListener('setCurrentItem', data => {
-      this.updateCurrentItem(data.detail);
+      this.updateCurrentItem(data.detail.id);
       console.log(`the current item was updated in item-view`)
     });
 
