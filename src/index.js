@@ -78,7 +78,8 @@ class App extends React.Component {
   componentDidMount() {
 
     document.addEventListener('setCurrentItem', data => {
-      console.log('From Hadley: ', data)
+      this.updateCurrentItem(data.detail);
+      console.log(`the current item was updated in item-view`)
     });
 
     this.getData()
@@ -93,15 +94,18 @@ class App extends React.Component {
       console.log(this.state.items)})
   }
 
-  updateCurrentItem(){
-    this.setState({
-      currentItem : this.state.items[this.state.currentItemIndex],
-      quantity : 1
+  //updates current item and it's corresponding index based on a given index
+  updateCurrentItem(index){
+    this.setState({currentItemIndex : index}, ()=>{
+      this.setState({
+        currentItem : this.state.items[this.state.currentItemIndex],
+        quantity : 1
+      })
     })
   }
 
   rngCurrentItemIndex(){
-    this.setState({currentItemIndex : Math.floor(Math.random() * 40)}, this.updateCurrentItem)
+     this.updateCurrentItem(Math.floor(Math.random() * this.state.items.length))
   }
 
   handleAddToCart(){

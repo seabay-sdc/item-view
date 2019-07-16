@@ -28,15 +28,16 @@ app.get('/api/items', (req, res) => {
 
 //Seed items database
 app.post('/api/items/seed', (req, res) => {
-  // //Images => Array
-  // items = req.body.data.map( item => {
-  //   item.images = [item.img1, item.img2, item.img3];
-  //   return item;
-  // });
+  //Images => Array
+  console.log(req.body.data)
+  items = req.body.data.map( item => {
+    item.images = [item.img1, item.img2, item.img3];
+    return item;
+  });
 
-  // db.addManyItems(items)
-  // .then ( () => {res.send('added all items to database')})
-  res.send('seeding is currently disabled')
+  db.addManyItems(items)
+  .then ( () => {res.send('added all items to database')})
+  // res.send('seeding is currently disabled')
 });
 
 
