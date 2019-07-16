@@ -129,7 +129,7 @@ class App extends React.Component {
     const {classes} = this.props;
     return (
       <Container className={classes.Container} maxWidth="lg">
-        <Button onClick={()=>{this.rngCurrentItemIndex()}}variant="contained" color="primary">RNG item</Button>
+        <Button onClick={()=>{this.rngCurrentItemIndex()}}variant="contained" color="primary">I'm Feeling Lucky</Button>
 
 
         <Grid container spacing={3}> 
