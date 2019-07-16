@@ -107,7 +107,16 @@ class App extends React.Component {
   }
 
   rngCurrentItemIndex(){
-     this.updateCurrentItem(Math.floor(Math.random() * this.state.items.length))
+    //generate random item ID
+    const randomId = Math.floor(Math.random() * this.state.items.length);
+    //Dispatch event so that everyone can update their component
+    const detail = { 
+      detail: {
+        id : randomId
+      } 
+    }
+    const event = new CustomEvent('setCurrentItem', detail);
+    document.dispatchEvent(event);
   }
 
   handleAddToCart(){
