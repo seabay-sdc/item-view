@@ -48,6 +48,9 @@ const styles = {
     backgroundColor: "#EEEEEE",
     padding: 0,
     marginTop: 0
+  },
+  label: {
+    color: '#767676'
   }
 }
 

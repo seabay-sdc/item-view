@@ -23,14 +23,20 @@ function AboutItem (props) {
 
 {/* Row 1 */}
               <Grid item xs={6}>
-                <Typography variant="body1" gutterBottom align="left">Condition</Typography>
+                <Typography 
+                  className={props.classes.label}
+                  variant="body1" 
+                  gutterBottom 
+                  align="left">
+                    Condition
+                </Typography>
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="body1" gutterBottom align="left">{props.currentItem.condition}</Typography>
               </Grid>
 {/* Row 2 */}
               <Grid item xs={6}>
-                <Typography variant="body1" gutterBottom align="left">Quantity</Typography>
+                <Typography className={props.classes.label} variant="body1" gutterBottom align="left">Quantity</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="body1" align="left">{props.currentItem.quantity} available</Typography>
@@ -38,7 +44,7 @@ function AboutItem (props) {
               </Grid>
 {/* Row 1 */}
               <Grid item xs={6}>
-                <Typography variant="body1" gutterBottom align="left">Category</Typography>
+                <Typography className={props.classes.label} variant="body1" gutterBottom align="left">Category</Typography>
               </Grid>
               <Grid item xs={6}>
                 <Typography variant="body1" gutterBottom align="left">{props.currentItem.category}</Typography>
