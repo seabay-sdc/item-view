@@ -50,7 +50,7 @@ const styles = {
     marginTop: 0,
     // Added to because bottom was overflowing into doriss
     marginBottom: 0,
-    paddingBottom: 30
+    paddingBottom: 12
   },
   label: {
     color: '#767676'

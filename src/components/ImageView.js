@@ -10,7 +10,9 @@ function ImageView (props) {
 
           <Grid item xs={12}>
             <Paper className={props.classes.paper} square={true}>
-            <img src={props.currentItem.images[0]} alt="mouse" objectFit="cover" width="100%"></img>
+              <div>
+                <img src={props.currentItem.images[0]} alt="mouse" objectFit="cover" width="100%"></img>
+              </div>
             </Paper>
           </Grid>
           
