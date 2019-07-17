@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, TextField, Button, GridList, GridListTile, Typography, Paper, Card, CardContent, Divider, CardHeader } from "@material-ui/core";
+import {  FormControl, InputLabel, Select, MenuItem, Grid, TextField, Button, GridList, GridListTile, Typography, Paper, Card, CardContent, Divider, CardHeader } from "@material-ui/core";
 import Rating from 'material-ui-rating'
 
 function ItemSummary (props) {
@@ -47,11 +47,9 @@ function ItemSummary (props) {
                     margin="none"
                     fullWidth={true}    
                     onChange={(e)=>{props.onChangeQuantity(e.target.value)}}
+                    
                     />
               </Grid>
-    
-
-    
     
               </Grid>
            </Paper>
