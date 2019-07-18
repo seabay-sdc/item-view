@@ -152,7 +152,11 @@ class App extends React.Component {
 
         <Grid container spacing={3}> 
           <Grid item sm={12} md={6}>
-            <ImageView classes={classes} currentItem={this.state.currentItem}/>
+            <ImageView 
+              classes={classes} 
+              currentItem={this.state.currentItem}
+              
+              />
           </Grid>
           <Grid item sm={12} md={6}>
 
