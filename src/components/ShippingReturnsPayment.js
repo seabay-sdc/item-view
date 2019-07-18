@@ -52,8 +52,8 @@ function ShippingReturnsPayment (props) {
                   </Grid>
                   <Grid item xs={6}>
                     
-                    <div style={{height: 30, width: 247, overflow : 'hidden'}}>
-                      <img style={{height: 30}} src="https://ir.ebaystatic.com/cr/v/c1/mwebpayments/mWeb_payment_sprite_placeholder.png"></img>
+                    <div style={{height: 24, width: 198, overflow : 'hidden'}}>
+                      <img style={{height: '100%'}} src="https://ir.ebaystatic.com/cr/v/c1/mwebpayments/mWeb_payment_sprite_placeholder.png"></img>
                     </div>
                   </Grid>
 
