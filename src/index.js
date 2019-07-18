@@ -136,19 +136,27 @@ class App extends React.Component {
   }
 
   onChangeQuantity(newQuantity){
-    this.setState({quantity : parseInt(newQuantity)})
+    if (newQuantity <= this.state.currentItem.quantity){
+      this.setState({quantity : parseInt(newQuantity)})
+    } else {
+      alert("There aren't that many available to purchase")
+    }
   }
   
   render () {
     const {classes} = this.props;
     return (
-      <Container className={classes.Container} maxWidth="lg">
+
        
 
 
         <Grid container spacing={3}> 
           <Grid item sm={12} md={6}>
-            <ImageView classes={classes} currentItem={this.state.currentItem}/>
+            <ImageView 
+              classes={classes} 
+              currentItem={this.state.currentItem}
+              
+              />
           </Grid>
           <Grid item sm={12} md={6}>
 
@@ -188,7 +196,7 @@ class App extends React.Component {
           </Grid>
 
         </Grid>
-      </Container>
+
       );
   }
 }
