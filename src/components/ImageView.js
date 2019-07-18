@@ -83,22 +83,19 @@ handleImageClick(imgUrl) {
           </div>
         </Paper>
       </Grid>
-      
-      <GridList cols={3} spacing={6} cellHeight={120}>
 
-        {this.props.currentItem.images.map( image => {
-          if (image.length != 0) {
-            return (
-            <GridListTile>
-            <img src={image} alt="mouse" onMouseOver={(e)=>{this.handleImageClick(e.target.src)}}></img>
-            </GridListTile>
-            )           
-          }
-          
-        })}
-      </GridList>
+      {this.props.currentItem.images.map( image => {
+        if (image.length != 0) {
+          return (
+           <Grid item xs={4} >
+             <Paper className={classes.paper} square={true} style={{height: 200}}>
+               <img style={{maxHeight : "100%", maxWidth : "100%"}} src={image} alt="mouse" onMouseOver={(e)=>{this.handleImageClick(e.target.src)}}></img>
+             </Paper>
+           </Grid>
+          )           
+        }   
+      })}
     </Grid>
-
       );
   }
 }
