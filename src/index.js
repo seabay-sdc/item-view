@@ -26,9 +26,7 @@ const theme = createMuiTheme({
     secondary: {
       main: "#009AF7"
     }
-
   }
-
 });
 console.log(theme)
 
@@ -54,6 +52,10 @@ const styles = {
   },
   label: {
     color: '#767676'
+  },
+  magnifySmall: {
+    maxHeight: "100%",
+    maxWidth: "100%"
   }
 }
 
