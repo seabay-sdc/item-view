@@ -42,14 +42,14 @@ const styles = {
     marginTop: 10,
     marginBottom: 10,
   },
-  Container: {
-    backgroundColor: "#EEEEEE",
-    padding: 0,
-    marginTop: 0,
-    // Added to because bottom was overflowing into doriss
-    marginBottom: 0,
-    paddingBottom: 12
-  },
+  // Container: {
+  //   backgroundColor: "#EEEEEE",
+  //   padding: 0,
+  //   marginTop: 0,
+  //   // Added to because bottom was overflowing into doriss
+  //   marginBottom: 0,
+  //   paddingBottom: 12
+  // },
   label: {
     color: '#767676'
   },
@@ -61,7 +61,7 @@ const styles = {
 
 
 // @withStyles(styles)
-class App extends React.Component {
+class ItemView extends React.Component {
   constructor () {
     super()
     
@@ -203,10 +203,10 @@ class App extends React.Component {
   }
 }
 
-App = withStyles(styles)(App);
+ItemView = withStyles(styles)(ItemView);
 
 ReactDOM.render(
 <MuiThemeProvider theme={theme}>
-  <App />
+  <ItemView />
 </MuiThemeProvider>
 , document.getElementById("item-view"));
