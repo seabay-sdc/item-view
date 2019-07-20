@@ -39,8 +39,8 @@ handleImageClick(imgUrl) {
         </Paper>
       </Grid>
 
-      {this.props.currentItem.images.map( image => {
-        if (image.length != 0) {
+      {this.props.currentItem.images.map( (image, index, collection) => {
+        if (image.length != 0 && collection[1].length !=0) { //Basically, render the image if it exists and there are at least two images.
           return (
            <Grid item xs={4} >
              <Paper className={classes.paper} square={true} style={{height: 200}}>
