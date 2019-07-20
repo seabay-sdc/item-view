@@ -5,12 +5,6 @@ const mongoose = require('mongoose');
 mongoose.connect(`mongodb+srv://${process.env.DB_USER
 }:${process.env.DB_PASS}@cluster0-cmnav.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true, dbName : 'seabay'});
 
-//test interface
-// const Cat = mongoose.model('Cat', { name: String });
-
-// const kitty = new Cat({ name: 'Zildjian' });
-// kitty.save().then(() => console.log('meow'));
-
 const addItem = (id, name, price, category, images) => {
   return new Item({
     id,

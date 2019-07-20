@@ -62,7 +62,7 @@ const styles = {
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'c',
-  seed: 'asbcsadf'
+  seed: 'hadley'
 });
 
 // @withStyles(styles)
