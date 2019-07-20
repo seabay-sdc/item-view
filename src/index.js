@@ -62,6 +62,7 @@ const styles = {
 
 const generateClassName = createGenerateClassName({
   productionPrefix: 'c',
+  seed: 'asbcsadf'
 });
 
 // @withStyles(styles)
@@ -156,6 +157,7 @@ class ItemView extends React.Component {
        
 
 <StylesProvider generateClassName={generateClassName}>
+  <MuiThemeProvider theme={theme}>
         <Grid container spacing={3}> 
           <Grid item sm={12} md={6}>
             <ImageView 
@@ -202,6 +204,7 @@ class ItemView extends React.Component {
           </Grid>
 
         </Grid>
+        </MuiThemeProvider>
         </StylesProvider>
       );
   }
@@ -210,6 +213,6 @@ class ItemView extends React.Component {
 ItemView = withStyles(styles)(ItemView);
 
 ReactDOM.render(
-<MuiThemeProvider theme={theme}>
-  <ItemView />
-</MuiThemeProvider>, document.getElementById("item-view"));
+
+  <ItemView />,
+ document.getElementById("item-view"));
