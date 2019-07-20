@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { withStyles, withTheme } from '@material-ui/styles';
 import blue from '@material-ui/core/colors/blue';
 import axios from 'axios';
+import { StylesProvider, createGenerateClassName } from '@material-ui/styles';
 
 
 // require('dotenv').config()
@@ -59,6 +60,9 @@ const styles = {
   }
 }
 
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'c',
+});
 
 // @withStyles(styles)
 class ItemView extends React.Component {
@@ -206,7 +210,9 @@ class ItemView extends React.Component {
 ItemView = withStyles(styles)(ItemView);
 
 ReactDOM.render(
+  <StylesProvider generateClassName={generateClassName}>
 <MuiThemeProvider theme={theme}>
   <ItemView />
 </MuiThemeProvider>
+</StylesProvider>
 , document.getElementById("item-view"));
