@@ -1,11 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PropTypes from "prop-types";
-import Container from '@material-ui/core/Container';
-import { createMuiTheme, MuiThemeProvider, IconButton, Button, Grid, Typography, Paper, Divider, TextField, AppBar, Toolbar } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-import { withStyles, withTheme } from '@material-ui/styles';
-import blue from '@material-ui/core/colors/blue';
+import { createMuiTheme, MuiThemeProvider, Button, Grid } from "@material-ui/core";
+import { withStyles } from '@material-ui/styles';
 import axios from 'axios';
 import { StylesProvider, createGenerateClassName } from '@material-ui/styles';
 
@@ -29,7 +25,6 @@ const theme = createMuiTheme({
     }
   }
 });
-console.log(theme)
 
 const styles = {
   root: {
@@ -79,7 +74,7 @@ class ItemView extends React.Component {
           "name": "",
           "price": 0,
           "category": "",
-          "images" : ["","",""]
+          "images" : ["",""]
         },
       quantity: 1,
       
@@ -89,36 +84,65 @@ class ItemView extends React.Component {
   }
 
   componentDidMount() {
-
     document.addEventListener('setCurrentItem', data => {
       this.updateCurrentItem(data.detail.id);
       console.log(`the current item was updated in item-view`)
     });
-
-    this.getData()
-    //after we get our data the first time, set the current item to the first one in the list
-    .then( () => {this.updateCurrentItem(0)})
+    let currentItem = this.state.currentItem;
+    axios.get(`/api/items`, {params: {id: 1}})
+    .then( results => {
+      currentItem.category = results.data.category;
+      currentItem.id = results.data.id;
+      currentItem.price = results.data.price;
+      let images = results.data.images.split(',');
+      images[0] = parseInt(images[0]) * (Math.floor(Math.random() * 2) + 1)
+      images[1] = parseInt(images[1]) * (Math.floor(Math.random() * 2) + 1)
+      currentItem.images[0] = `https://seabay2.s3.us-east-2.amazonaws.com/${images[0]}.jpg`
+      currentItem.images[1] = `https://seabay2.s3.us-east-2.amazonaws.com/${images[1]}.jpg`
+      this.setState({currentItem, quantity: results.data.quantity});
+    })
   }
 
   //populate our state with items from server
   getData() {
-    return axios.get(`http://18.223.115.104:3000/api/items`)
-    .then( results => {this.setState({items: results.data})})
+    axios.get(`/api/items`, {params: {id: 1}})
+    //populate currentItem with results
+    // currentItem: {
+    //       "id": -1,
+    //       "name": "",
+    //       "price": 0,
+    //       "category": "",
+    //       "images" : ["","",""]}
+    .then( results => {console.log(results)})
   }
 
   //updates current item and it's corresponding index based on a given index
   updateCurrentItem(index){
-    this.setState({currentItemIndex : index}, ()=>{
-      this.setState({
-        currentItem : this.state.items[this.state.currentItemIndex],
-        quantity : 1
-      })
+    //api call for current id -- which is the index --
+    axios.get(`/api/items`, {params: {id: index}})
+    .then( results => {
+      let currentItem = this.state.currentItem;
+      currentItem.category = results.data.category;
+      currentItem.id = results.data.id;
+      currentItem.price = results.data.price;
+      let images = results.data.images.split(' ');
+      images[0] = images[0] * (Math.floor(Math.random() * 2) + 1)
+      images[1] = images[1] * (Math.floor(Math.random() * 2) + 1)
+      currentItem.images[0] = `https://seabay2.s3.us-east-2.amazonaws.com/${images[0]}.jpg`
+      currentItem.images[1] = `https://seabay2.s3.us-east-2.amazonaws.com/${images[1]}.jpg`
+      this.setState({currentItem, quantity: results.data.quantity});
     })
+    // this.setState({currentItemIndex : index}, ()=>{
+    //   this.setState({
+    //     currentItem : this.state.items[this.state.currentItemIndex],
+    //     quantity : 1
+    //   })
+    // })
   }
 
   rngCurrentItemIndex(){
     //generate random item ID
-    const randomId = Math.floor(Math.random() * this.state.items.length);
+    const randomId = Math.floor(Math.random() * 10000000);
     //Dispatch event so that everyone can update their component
     const detail = { 
       detail: {
@@ -143,8 +167,9 @@ class ItemView extends React.Component {
   }
 
   onChangeQuantity(newQuantity){
-    if (newQuantity <= this.state.currentItem.quantity){
-      this.setState({quantity : parseInt(newQuantity)})
+    console.log(this.state.quantity, 'new', newQuantity)
+    if (newQuantity <= this.state.quantity){
+      //this.setState({quantity : parseInt(newQuantity)})
     } else {
       alert("There aren't that many available to purchase")
     }
@@ -212,7 +237,4 @@ class ItemView extends React.Component {
 
 ItemView = withStyles(styles)(ItemView);
 
-ReactDOM.render(
-
-  <ItemView />,
- document.getElementById("item-view"));
+ReactDOM.render(<ItemView />,document.getElementById("item-view"));

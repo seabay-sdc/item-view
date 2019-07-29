@@ -8,7 +8,7 @@ class ImageView extends React.Component {
     
     this.state = {
       //currentImage doesn't need to be aware of props. only for seed
-      currentImage: ''
+      currentImage: 'https://seabay2.s3.us-east-2.amazonaws.com/1.jpg'
     }
   }
 
@@ -27,7 +27,6 @@ handleImageClick(imgUrl) {
   render () {
     const {classes} = this.props;
     const props = {width: 400, height: 250, zoomWidth: 500, img: `${this.state.currentImage}`};
-    console.log(this.state.currentImage)
     return (
       <Grid container> 
 

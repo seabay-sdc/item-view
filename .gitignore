@@ -63,3 +63,5 @@ typings/
 .DS_Store
 config.js
 dist.bundle.js
+/server/seed.csv
+/server/seedMongo.csv

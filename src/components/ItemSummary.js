@@ -42,7 +42,7 @@ function ItemSummary (props) {
               <TextField 
                     defaultValue={props.quantity}
                     type="number"
-                    InputProps={{ inputProps: { min: 1, max: props.currentItem.quantity } }}
+                    InputProps={{ inputProps: { min: 1, max: props.quantity } }}
                     variant="outlined"
                     margin="none"
                     fullWidth={true}    

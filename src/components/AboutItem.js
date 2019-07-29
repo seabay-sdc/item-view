@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Grid, TextField, Button, GridList, GridListTile, Typography, Paper, Card, CardContent, Divider, CardHeader } from "@material-ui/core";
+import { Grid, Typography, Paper, Card, CardContent, Divider, CardHeader } from "@material-ui/core";
 
 function AboutItem (props) {
 
