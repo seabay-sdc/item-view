@@ -85,8 +85,8 @@ class ItemView extends React.Component {
 
   componentDidMount() {
     document.addEventListener('setCurrentItem', data => {
-      this.updateCurrentItem(data.detail.id);
       console.log(`the current item was updated in item-view`)
+      this.updateCurrentItem(data.detail.id);
     });
     let currentItem = this.state.currentItem;
     axios.get(`/api/items`, {params: {id: 1}})
@@ -121,13 +121,14 @@ class ItemView extends React.Component {
     //api call for current id -- which is the index --
     axios.get(`/api/items`, {params: {id: index}})
     .then( results => {
+      console.log(results)
       let currentItem = this.state.currentItem;
       currentItem.category = results.data.category;
       currentItem.id = results.data.id;
       currentItem.price = results.data.price;
-      let images = results.data.images.split(' ');
-      images[0] = images[0] * (Math.floor(Math.random() * 2) + 1)
-      images[1] = images[1] * (Math.floor(Math.random() * 2) + 1)
+      let images = results.data.images.split(',');
+      images[0] = parseInt(images[0]) * (Math.floor(Math.random() * 2) + 1)
+      images[1] = parseInt(images[1]) * (Math.floor(Math.random() * 2) + 1)
       currentItem.images[0] = `https://seabay2.s3.us-east-2.amazonaws.com/${images[0]}.jpg`
       currentItem.images[1] = `https://seabay2.s3.us-east-2.amazonaws.com/${images[1]}.jpg`
       this.setState({currentItem, quantity: results.data.quantity});

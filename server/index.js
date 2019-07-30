@@ -1,17 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const db = require('../database/index.js');
-require('dotenv').config()
+//require('dotenv').config()
 const cors = require('cors')
 const compression = require('compression')
 var faker = require('faker');
 const fs = require('fs');
 const path = require('path')
-const http = require('http');
-const https = require('https');
-
-http.globalAgent.maxSockets = Infinity;
-https.globalAgent.maxSockets = Infinity;
 
 const app = express();
 const port = process.env.DB_PORT || 3005
