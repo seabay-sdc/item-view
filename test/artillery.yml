@@ -1,0 +1,12 @@
+config:
+  target: 'http://ec2-18-221-95-6.us-east-2.compute.amazonaws.com:3005/'
+  phases:
+    - duration: 30
+      arrivalRate: 2000
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - flow:
+    - get:
+        url: "/docs"
