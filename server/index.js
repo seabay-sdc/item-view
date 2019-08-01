@@ -2,14 +2,31 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const db = require('../database/index.js');
 //require('dotenv').config()
-const cors = require('cors')
-const compression = require('compression')
+const cors = require('cors');
+const compression = require('compression');
 var faker = require('faker');
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
+const cluster = require('cluster');
 
 const app = express();
 const port = process.env.DB_PORT || 3005
+
+
+// const fastify = require('fastify')()
+// fastify.register(require('fastify-static'), {
+//   root: path.join(__dirname, '../dist');
+// })
+// const start = async () => {
+//   try {
+//     await fastify.listen(3000)
+//     fastify.log.info(`server listening on ${fastify.server.address().port}`)
+//   } catch (err) {
+//     fastify.log.error(err)
+//     process.exit(1)
+//   }
+// }
+// start()
 
 app.use(compression())
 app.use(cors())
@@ -18,7 +35,7 @@ app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 
 //app.use("/", express.static("dist"));
-app.use(express.static(path.join(__dirname, '../dist')));
+//app.use(express.static(path.join(__dirname, '../dist')));
 app.get("/api", (req, res) => {
   console.log("successful request!");
   res.send("Hi there");
@@ -126,5 +143,31 @@ let count = 1;
 //   }
 // }
 // runTests()
+// if(cluster.isMaster) {
+//   var numWorkers = require('os').cpus().length;
+
+//   console.log('Master cluster setting up ' + numWorkers + ' workers...');
+
+//   for(var i = 0; i < numWorkers; i++) {
+//       cluster.fork();
+//   }
+
+//   cluster.on('online', function(worker) {
+//       console.log('Worker ' + worker.process.pid + ' is online');
+//   });
+
+//   cluster.on('exit', function(worker, code, signal) {
+//       console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
+//       console.log('Starting a new worker');
+//       cluster.fork();
+//   });
+// } else {
+//   var app = require('express')();
+//   app.all('/*', function(req, res) {res.send('process ' + process.pid + ' says hello!').end();})
+
+//   var server = app.listen(port, function() {
+//       console.log('Process ' + process.pid + ' is listening to all incoming requests');
+//   });
+// }
 
 app.listen(port, () => console.log(`Now listening on port ${port}!`));
