@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
 
 //app.use("/", express.static("dist"));
-//app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static(path.join(__dirname, '../dist')));
 app.get("/api", (req, res) => {
   console.log("successful request!");
   res.send("Hi there");
