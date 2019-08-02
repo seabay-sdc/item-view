@@ -35,4 +35,6 @@ On my first stress test of my server using artillery.io, I got an RPS of 929.54 
 
 Unfortunatly, the EC2 instance I used (t2.micro) is a single core so I could not take advantage of clusters. The first run on AWS with my optimized server gave results of an RPS of 826.1.
 
-Through using nginx and running a couple of instances and using the nginx load balancing, I was able to raise the server RPS to 1698.
+After researching through different testing methods, it looks like my current computer was limited with testing with artillery.io. I moved to loader.io which does cloud testing and is less dependent on my local machine. This was able to rais the RPS to the index.html file to over 1000 before getting errors. Running 2,500 gives a significant error rate of 10%.
+
+The next step was to change the server from a node.js server to nginx which significantly raised the response per second of the server to 8,500 on my EC2 instance. 
