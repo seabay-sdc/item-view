@@ -28,7 +28,7 @@ const port = process.env.DB_PORT || 3005
 // }
 // start()
 
-app.use(compression())
+//app.use(compression())
 app.use(cors())
 //Parse json and x-ww-form-urlencoded
 app.use(bodyParser.json());
@@ -75,10 +75,10 @@ app.post('/testing', (req, res) => {
 //   // res.send('seeding is currently disabled')
 // });
 
-let categories = ['books', 'movies', 'games', 'paintings', 'other']
-let condition = ['new', 'used']
-let itemID = 1;
-let count = 1;
+// let categories = ['books', 'movies', 'games', 'paintings', 'other']
+// let condition = ['new', 'used']
+// let itemID = 1;
+// let count = 1;
 
 // console.time('timer');
 // function runThousand() {
